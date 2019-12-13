@@ -21,6 +21,6 @@ Other factors to consider:
 - We don't know the distribution of egg durability.
 - We only know whether an egg breaks or not, not anything quantifiable about how close it was to surviving or breaking.
 
-If we assume all eggs have equal durability and that the prompt wants the biggest `f` given a type of egg, the above means we can't do any better than a binary search, starting in the middle, then repeating the test in the upper or lower half depending on the outcome for the egg.
+If we assume all eggs have equal durability and that the prompt wants the biggest `f` given a type of egg, the above means we can't do any better than a binary search, starting in the middle, then repeating the test in the upper or lower half depending on the outcome for the egg. That would be `O(log(n))` time.
 
-If we knew air resistance was not a problem, we might do better to skew our notion of "middle" exponentially to account for the constant acceleration of gravity.
+If we knew air resistance was not a problem, we might do better to skew our notion of "middle" exponentially to account for the constant acceleration of gravity. I think an exponentially/logarithmically skewed binary search would still happen in log time, but I'd have to do a lot of math to be condifent.
