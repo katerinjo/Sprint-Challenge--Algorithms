@@ -92,6 +92,7 @@ class SortingRobot:
         """
         return self._light == "ON"
 
+    # only for debugging
     def show_state(self):
         print('-------')
         for i in range(len(self._list)):
@@ -124,43 +125,43 @@ off-(hold) + l>h + left-border -> swap, light_on, move_right = on-(hold)
 off-(hold) + l<=h -> light_on, move_right = on-(hold)
         '''
         self.show_state()
-        input('')
+        #input('')
         if self.light_is_on():
             if self.compare_item() is None:
                 if self.can_move_right():
-                    print('--> reached border, go left')
+                    #print('--> reached border, go left')
                     self.swap_item()
                     self.move_right()
                     self.set_light_off()
                 else:
-                    print('--> final insertion')
+                    #print('--> final insertion')
                     self.swap_item()
                     return
             else:
-                print('--> bubble up')
+                #print('--> bubble up')
                 self.swap_item()
                 self.move_right()
         else:
             if self.compare_item() is None:
                 if self.can_move_left():
-                    print('--> create the partition')
+                    #print('--> create the partition')
                     self.swap_item()
                     self.move_left()
                 else:
-                    print('--> left border')
+                    #print('--> left border')
                     self.move_right()
             else:
                 if self.compare_item() == -1:
                     if self.can_move_left():
-                        print('--> not right place yet')
+                        #print('--> not right place yet')
                         self.move_left()
                     else:
-                        print('--> none left to be smaller, start shifting')
+                        #print('--> none left to be smaller, start shifting')
                         self.swap_item()
                         self.set_light_on()
                         self.move_right()
                 else:
-                    print('--> correct place! start bubbling')
+                    #print('--> correct place! start bubbling')
                     self.set_light_on()
                     self.move_right()
         self.sort()
